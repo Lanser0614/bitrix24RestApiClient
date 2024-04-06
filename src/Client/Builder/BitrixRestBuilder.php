@@ -11,14 +11,17 @@ class BitrixRestBuilder
 {
     public ?string $connection = null;
 
+    public function __construct()
+    {
+        $this->connection = config('bitrix_rest_api.connection.default');
+    }
+
     public function setConnection(?string $connection = null): static
     {
         if ($connection) {
             $this->connection = $connection;
             return $this;
         }
-
-        $this->connection = config('bitrix_rest_api.connection.default');
 
         return $this;
     }
