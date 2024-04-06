@@ -12,7 +12,7 @@ abstract class BitrixRest
     )
     {
     }
-    protected function baseRequest(string $method, array $data): BitrixResponseDto
+    protected function baseRequest(string $method, array $data = []): BitrixResponseDto
     {
         $queryUrl = $this->connectionString . $method;
         $queryData = http_build_query($data);
@@ -36,6 +36,8 @@ abstract class BitrixRest
 
     protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseDto
     {
+        $request = [];
+
         if (count($fields) > 0) {
             $request['fields'] = $fields;
         }
@@ -48,11 +50,6 @@ abstract class BitrixRest
             $request['id'] = $id;
         }
 
-        if (empty($request)) {
-            throw new \InvalidArgumentException();
-        }
-
         return $this->baseRequest($method, $request);
-
     }
 }
