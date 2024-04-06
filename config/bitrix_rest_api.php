@@ -1,9 +1,7 @@
 <?php
 return [
     "connection" => [
-        "default" => [
-            "url" => '',
-        ]
+        "default" => ""
     ],
 
     "webhooks_events" => [
