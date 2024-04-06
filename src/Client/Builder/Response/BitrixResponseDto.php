@@ -3,20 +3,35 @@ declare(strict_types=1);
 
 namespace Lanser\Bitrix24restApi\Client\Builder\Response;
 
+use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
+use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
+
 class BitrixResponseDto
 {
+    /**
+     * @param int|array|bool $result
+     * @param int $total
+     * @param EntityTypeEnum|null $entityTypeEnum
+     */
     public function __construct(
-        private readonly int|array $result,
-        private readonly int $total
+        private readonly int|array|bool $result,
+        private readonly int $total,
+        private readonly ?EntityTypeEnum $entityTypeEnum
     )
     {
     }
 
-    public static function fromArray(array $data)
+    /**
+     * @param array $data
+     * @param EntityTypeEnum $entity
+     * @return self
+     */
+    public static function fromArray(array $data, EntityTypeEnum $entity): self
     {
         return new self(
-            $data['result'],
-            $data['total'],
+            result: $data['result'],
+            total: $data['total'],
+            entityTypeEnum: $entity
         );
     }
 
@@ -33,17 +48,64 @@ class BitrixResponseDto
 
     public function isList(): bool
     {
-        return is_array($this->result);
+        return (is_array($this->result) && count($this->result) > 1);
     }
 
-    public function getResult(): array|int
+    public function getResult(): array|int|bool
     {
         return $this->result;
     }
 
+    /**
+     * @return int
+     */
     public function getTotal(): int
     {
         return $this->total;
     }
+
+    /**
+     * @return bool
+     */
+    public function isOne(): bool
+    {
+        return count($this->result) === 1;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOneItem(): mixed
+    {
+        if ($this->isOne() === false) {
+            throw new \InvalidArgumentException();
+        }
+
+        return $this->getEntity(array_shift($this->result));
+    }
+
+    /**
+     * @return array
+     */
+    public function getItems(): array
+    {
+        if ($this->isList() === false) {
+            throw new \InvalidArgumentException();
+        }
+
+        return array_map(fn($item) => $this->getEntity($item), $this->result);
+    }
+
+    /**
+     * @param array $data
+     * @return mixed
+     */
+    private function getEntity(array $data): mixed
+    {
+        return match (true) {
+          $this->entityTypeEnum === EntityTypeEnum::COMPANY => Company::fromArray($data),
+        };
+    }
+
 
 }

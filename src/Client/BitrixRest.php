@@ -4,9 +4,11 @@ declare(strict_types=1);
 namespace Lanser\Bitrix24restApi\Client;
 
 use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
+use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
 abstract class BitrixRest
 {
+    protected static ?EntityTypeEnum $entity = null;
     public function __construct(
         private readonly string $connectionString,
     )
