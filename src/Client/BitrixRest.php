@@ -33,7 +33,7 @@ abstract class BitrixRest
         curl_close($curl);
 
         $data = json_decode($result, true);
-        return BitrixResponseDto::fromArray($data);
+        return BitrixResponseDto::fromArray($data, static::$entity);
     }
 
     protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseDto
