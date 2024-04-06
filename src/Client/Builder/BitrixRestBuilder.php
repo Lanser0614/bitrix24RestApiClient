@@ -9,14 +9,16 @@ use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
 
 class BitrixRestBuilder
 {
-    public ?string $connection = config('bitrix_rest_api.connection.default');
+    public ?string $connection = null;
 
-    public function setConnection(?string $connection = null)
+    public function setConnection(?string $connection = null): static
     {
         if ($connection) {
             $this->connection = $connection;
             return $this;
         }
+
+        $this->connection = config('bitrix_rest_api.connection.default');
 
         return $this;
     }
