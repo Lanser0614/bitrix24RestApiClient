@@ -81,7 +81,7 @@ class BitrixResponseMapper
             throw new \InvalidArgumentException();
         }
 
-        $firstItem = array_shift($this->result);
+        $firstItem = $this->getResult()[0];
         return $this->getEntity($firstItem);
     }
 

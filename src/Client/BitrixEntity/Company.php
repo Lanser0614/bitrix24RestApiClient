@@ -15,25 +15,25 @@ class Company
         private ?string $addressPostalCode = null,
         private ?string $addressProvince = null,
         private ?string $addressRegion = null,
-        private ?int    $assignedById = null,
+        private ?string $assignedById = null,
         private ?string $bankingDetails = null,
         private ?string $comments = null,
         private ?string $companyType = null,
-        private ?int    $createdById = null,
-        private ?int    $currencyId = null,
+        private ?string $createdById = null,
+        private ?string $currencyId = null,
         private ?string $dateCreate = null,
         private ?string $dateModify = null,
         private ?array  $email = null,
-        private ?int    $employees = null,
+        private ?string $employees = null,
         private ?string $hasEmail = null,
         private ?string $hasPhone = null,
-        private ?int    $id = null,
+        private ?string $id = null,
         private ?array  $im = null,
         private ?string $industry = null,
         private ?string $isMyCompany = null,
-        private ?int    $leadId = null,
+        private ?string $leadId = null,
         private ?string $logo = null,
-        private ?int    $modifyById = null,
+        private ?string $modifyById = null,
         private ?string $opened = null,
         private ?string $originatorId = null,
         private ?string $originId = null,
@@ -48,7 +48,7 @@ class Company
         private ?string $regAddressPostalCode = null,
         private ?string $regAddressProvince = null,
         private ?string $regAddressRegion = null,
-        private ?float  $revenue = null,
+        private ?string $revenue = null,
         private ?string $title = null,
         private ?string $utmCampaign = null,
         private ?string $utmContent = null,
@@ -159,12 +159,12 @@ class Company
         return $this;
     }
 
-    public function getAssignedById(): ?int
+    public function getAssignedById(): ?string
     {
         return $this->assignedById;
     }
 
-    public function setAssignedById(?int $assignedById): Company
+    public function setAssignedById(?string $assignedById): Company
     {
         $this->assignedById = $assignedById;
         return $this;
@@ -203,23 +203,23 @@ class Company
         return $this;
     }
 
-    public function getCreatedById(): ?int
+    public function getCreatedById(): ?string
     {
         return $this->createdById;
     }
 
-    public function setCreatedById(?int $createdById): Company
+    public function setCreatedById(?string $createdById): Company
     {
         $this->createdById = $createdById;
         return $this;
     }
 
-    public function getCurrencyId(): ?int
+    public function getCurrencyId(): ?string
     {
         return $this->currencyId;
     }
 
-    public function setCurrencyId(?int $currencyId): Company
+    public function setCurrencyId(?string $currencyId): Company
     {
         $this->currencyId = $currencyId;
         return $this;
@@ -258,12 +258,12 @@ class Company
         return $this;
     }
 
-    public function getEmployees(): ?int
+    public function getEmployees(): ?string
     {
         return $this->employees;
     }
 
-    public function setEmployees(?int $employees): Company
+    public function setEmployees(?string $employees): Company
     {
         $this->employees = $employees;
         return $this;
@@ -291,12 +291,12 @@ class Company
         return $this;
     }
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function setId(?int $id): Company
+    public function setId(?string $id): Company
     {
         $this->id = $id;
         return $this;
@@ -335,12 +335,12 @@ class Company
         return $this;
     }
 
-    public function getLeadId(): ?int
+    public function getLeadId(): ?string
     {
         return $this->leadId;
     }
 
-    public function setLeadId(?int $leadId): Company
+    public function setLeadId(?string $leadId): Company
     {
         $this->leadId = $leadId;
         return $this;
@@ -357,12 +357,12 @@ class Company
         return $this;
     }
 
-    public function getModifyById(): ?int
+    public function getModifyById(): ?string
     {
         return $this->modifyById;
     }
 
-    public function setModifyById(?int $modifyById): Company
+    public function setModifyById(?string $modifyById): Company
     {
         $this->modifyById = $modifyById;
         return $this;
@@ -522,12 +522,12 @@ class Company
         return $this;
     }
 
-    public function getRevenue(): ?float
+    public function getRevenue(): ?string
     {
         return $this->revenue;
     }
 
-    public function setRevenue(?float $revenue): Company
+    public function setRevenue(?string $revenue): Company
     {
         $this->revenue = $revenue;
         return $this;
