@@ -9,6 +9,11 @@ use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
 
 class CompanyRestClient extends BitrixRest
 {
+    public function __construct(string $connectionString)
+    {
+        parent::__construct($connectionString);
+    }
+
     /**
      * @param Company $company
      * @return BitrixResponseDto
