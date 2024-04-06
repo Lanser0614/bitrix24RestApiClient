@@ -8,13 +8,13 @@ use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
 abstract class BitrixRest
 {
     public function __construct(
-        private string $connectionString,
+        private readonly string $connectionString,
     )
     {
     }
     protected function baseRequest(string $method, array $data): BitrixResponseDto
     {
-        $queryUrl = 'https://bitrix.imzo.uz/rest/397/7mth1xm4i2gf9w3s/' . $method;
+        $queryUrl = $this->connectionString . $method;
         $queryData = http_build_query($data);
 
         $curl = curl_init();

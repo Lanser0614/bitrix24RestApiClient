@@ -9,7 +9,7 @@ use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
 
 class BitrixRestBuilder
 {
-    public ?string $connection = "";
+    public ?string $connection = config('bitrix_rest_api.connection.default');
 
     public function setConnection(?string $connection = null)
     {
@@ -25,5 +25,4 @@ class BitrixRestBuilder
     {
         return new CompanyRestClient($this->connection);
     }
-
 }
