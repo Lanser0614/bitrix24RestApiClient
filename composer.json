@@ -11,7 +11,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Lanser\\Bitrix24restApi\\Provider\\LaravelBitrix24RestApi"
+                "Lanser\\Bitrix24restApi\\LaravelBitrix24RestApi"
             ]
         }
     },
