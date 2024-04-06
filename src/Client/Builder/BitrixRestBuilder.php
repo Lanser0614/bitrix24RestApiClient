@@ -5,7 +5,7 @@ namespace Lanser\Bitrix24restApi\Client\Builder;
 
 use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
 use Lanser\Bitrix24restApi\Client\Builder\CompanyRestClient\CompanyRestClient;
-use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
+use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseMapper;
 
 class BitrixRestBuilder
 {

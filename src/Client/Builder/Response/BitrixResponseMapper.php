@@ -6,7 +6,7 @@ namespace Lanser\Bitrix24restApi\Client\Builder\Response;
 use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
 use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
-class BitrixResponseDto
+class BitrixResponseMapper
 {
     /**
      * @param int|array|bool $result
@@ -81,7 +81,8 @@ class BitrixResponseDto
             throw new \InvalidArgumentException();
         }
 
-        return $this->getEntity(array_shift($this->result));
+        $firstItem = array_shift($this->result);
+        return $this->getEntity($firstItem);
     }
 
     /**
@@ -89,11 +90,8 @@ class BitrixResponseDto
      */
     public function getItems(): array
     {
-        if ($this->isList() === false) {
-            throw new \InvalidArgumentException();
-        }
-
-        return array_map(fn($item) => $this->getEntity($item), $this->result);
+        $items = $this->result;
+        return array_map(fn($item) => $this->getEntity($item), $items);
     }
 
     /**

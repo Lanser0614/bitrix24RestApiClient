@@ -5,7 +5,7 @@ namespace Lanser\Bitrix24restApi\Client\Builder\CompanyRestClient;
 
 use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
 use Lanser\Bitrix24restApi\Client\BitrixRest;
-use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
+use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseMapper;
 use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
 class CompanyRestClient extends BitrixRest
@@ -18,25 +18,25 @@ class CompanyRestClient extends BitrixRest
 
     /**
      * @param Company $company
-     * @return BitrixResponseDto
+     * @return BitrixResponseMapper
      */
-    public function storeCompany(Company $company): BitrixResponseDto
+    public function storeCompany(Company $company): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.add', $company->getRequestData());
     }
 
-    public function updateCompany(int $id, Company $company): BitrixResponseDto
+    public function updateCompany(int $id, Company $company): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.update', $company->getRequestData(), [], $id);
     }
 
-    public function getCompanyList(array $filters = []): BitrixResponseDto
+    public function getCompanyList(array $filters = []): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.list', [], $filters);
     }
 
 
-    public function getCompanyOne(int $id): BitrixResponseDto
+    public function getCompanyOne(int $id): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.get', [], [], $id);
     }

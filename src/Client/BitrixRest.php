@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Lanser\Bitrix24restApi\Client;
 
-use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
+use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseMapper;
 use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
 abstract class BitrixRest
@@ -14,7 +14,7 @@ abstract class BitrixRest
     )
     {
     }
-    protected function baseRequest(string $method, array $data = []): BitrixResponseDto
+    protected function baseRequest(string $method, array $data = []): BitrixResponseMapper
     {
         $queryUrl = $this->connectionString . $method;
         $queryData = http_build_query($data);
@@ -33,10 +33,10 @@ abstract class BitrixRest
         curl_close($curl);
 
         $data = json_decode($result, true);
-        return BitrixResponseDto::fromArray($data, static::$entity);
+        return BitrixResponseMapper::fromArray($data, static::$entity);
     }
 
-    protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseDto
+    protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseMapper
     {
         $request = [];
 
