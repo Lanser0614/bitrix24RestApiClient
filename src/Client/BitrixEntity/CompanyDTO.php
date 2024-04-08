@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Lanser\Bitrix24restApi\Client\BitrixEntity;
 
-class Company
+class CompanyDTO
 {
     public function __construct(
         private ?string $address = null,
@@ -65,7 +65,7 @@ class Company
         return $this->address;
     }
 
-    public function setAddress(?string $address): Company
+    public function setAddress(?string $address): CompanyDTO
     {
         $this->address = $address;
         return $this;
@@ -76,7 +76,7 @@ class Company
         return $this->address2;
     }
 
-    public function setAddress2(?string $address2): Company
+    public function setAddress2(?string $address2): CompanyDTO
     {
         $this->address2 = $address2;
         return $this;
@@ -87,7 +87,7 @@ class Company
         return $this->addressCity;
     }
 
-    public function setAddressCity(?string $addressCity): Company
+    public function setAddressCity(?string $addressCity): CompanyDTO
     {
         $this->addressCity = $addressCity;
         return $this;
@@ -98,7 +98,7 @@ class Company
         return $this->addressCountry;
     }
 
-    public function setAddressCountry(?string $addressCountry): Company
+    public function setAddressCountry(?string $addressCountry): CompanyDTO
     {
         $this->addressCountry = $addressCountry;
         return $this;
@@ -109,7 +109,7 @@ class Company
         return $this->addressCountryCode;
     }
 
-    public function setAddressCountryCode(?string $addressCountryCode): Company
+    public function setAddressCountryCode(?string $addressCountryCode): CompanyDTO
     {
         $this->addressCountryCode = $addressCountryCode;
         return $this;
@@ -120,7 +120,7 @@ class Company
         return $this->addressLegal;
     }
 
-    public function setAddressLegal(?string $addressLegal): Company
+    public function setAddressLegal(?string $addressLegal): CompanyDTO
     {
         $this->addressLegal = $addressLegal;
         return $this;
@@ -131,7 +131,7 @@ class Company
         return $this->addressPostalCode;
     }
 
-    public function setAddressPostalCode(?string $addressPostalCode): Company
+    public function setAddressPostalCode(?string $addressPostalCode): CompanyDTO
     {
         $this->addressPostalCode = $addressPostalCode;
         return $this;
@@ -142,7 +142,7 @@ class Company
         return $this->addressProvince;
     }
 
-    public function setAddressProvince(?string $addressProvince): Company
+    public function setAddressProvince(?string $addressProvince): CompanyDTO
     {
         $this->addressProvince = $addressProvince;
         return $this;
@@ -153,7 +153,7 @@ class Company
         return $this->addressRegion;
     }
 
-    public function setAddressRegion(?string $addressRegion): Company
+    public function setAddressRegion(?string $addressRegion): CompanyDTO
     {
         $this->addressRegion = $addressRegion;
         return $this;
@@ -164,7 +164,7 @@ class Company
         return $this->assignedById;
     }
 
-    public function setAssignedById(?string $assignedById): Company
+    public function setAssignedById(?string $assignedById): CompanyDTO
     {
         $this->assignedById = $assignedById;
         return $this;
@@ -175,7 +175,7 @@ class Company
         return $this->bankingDetails;
     }
 
-    public function setBankingDetails(?string $bankingDetails): Company
+    public function setBankingDetails(?string $bankingDetails): CompanyDTO
     {
         $this->bankingDetails = $bankingDetails;
         return $this;
@@ -186,7 +186,7 @@ class Company
         return $this->comments;
     }
 
-    public function setComments(?string $comments): Company
+    public function setComments(?string $comments): CompanyDTO
     {
         $this->comments = $comments;
         return $this;
@@ -197,7 +197,7 @@ class Company
         return $this->companyType;
     }
 
-    public function setCompanyType(?string $companyType): Company
+    public function setCompanyType(?string $companyType): CompanyDTO
     {
         $this->companyType = $companyType;
         return $this;
@@ -208,7 +208,7 @@ class Company
         return $this->createdById;
     }
 
-    public function setCreatedById(?string $createdById): Company
+    public function setCreatedById(?string $createdById): CompanyDTO
     {
         $this->createdById = $createdById;
         return $this;
@@ -219,7 +219,7 @@ class Company
         return $this->currencyId;
     }
 
-    public function setCurrencyId(?string $currencyId): Company
+    public function setCurrencyId(?string $currencyId): CompanyDTO
     {
         $this->currencyId = $currencyId;
         return $this;
@@ -230,7 +230,7 @@ class Company
         return $this->dateCreate;
     }
 
-    public function setDateCreate(?string $dateCreate): Company
+    public function setDateCreate(?string $dateCreate): CompanyDTO
     {
         $this->dateCreate = $dateCreate;
         return $this;
@@ -241,7 +241,7 @@ class Company
         return $this->dateModify;
     }
 
-    public function setDateModify(?string $dateModify): Company
+    public function setDateModify(?string $dateModify): CompanyDTO
     {
         $this->dateModify = $dateModify;
         return $this;
@@ -252,7 +252,7 @@ class Company
         return $this->email;
     }
 
-    public function setEmail(?array $email): Company
+    public function setEmail(?array $email): CompanyDTO
     {
         $this->email = $email;
         return $this;
@@ -263,7 +263,7 @@ class Company
         return $this->employees;
     }
 
-    public function setEmployees(?string $employees): Company
+    public function setEmployees(?string $employees): CompanyDTO
     {
         $this->employees = $employees;
         return $this;
@@ -274,7 +274,7 @@ class Company
         return $this->hasEmail;
     }
 
-    public function setHasEmail(?string $hasEmail): Company
+    public function setHasEmail(?string $hasEmail): CompanyDTO
     {
         $this->hasEmail = $hasEmail;
         return $this;
@@ -285,7 +285,7 @@ class Company
         return $this->hasPhone;
     }
 
-    public function setHasPhone(?string $hasPhone): Company
+    public function setHasPhone(?string $hasPhone): CompanyDTO
     {
         $this->hasPhone = $hasPhone;
         return $this;
@@ -296,7 +296,7 @@ class Company
         return $this->id;
     }
 
-    public function setId(?string $id): Company
+    public function setId(?string $id): CompanyDTO
     {
         $this->id = $id;
         return $this;
@@ -307,7 +307,7 @@ class Company
         return $this->im;
     }
 
-    public function setIm(?array $im): Company
+    public function setIm(?array $im): CompanyDTO
     {
         $this->im = $im;
         return $this;
@@ -318,7 +318,7 @@ class Company
         return $this->industry;
     }
 
-    public function setIndustry(?string $industry): Company
+    public function setIndustry(?string $industry): CompanyDTO
     {
         $this->industry = $industry;
         return $this;
@@ -329,7 +329,7 @@ class Company
         return $this->isMyCompany;
     }
 
-    public function setIsMyCompany(?string $isMyCompany): Company
+    public function setIsMyCompany(?string $isMyCompany): CompanyDTO
     {
         $this->isMyCompany = $isMyCompany;
         return $this;
@@ -340,7 +340,7 @@ class Company
         return $this->leadId;
     }
 
-    public function setLeadId(?string $leadId): Company
+    public function setLeadId(?string $leadId): CompanyDTO
     {
         $this->leadId = $leadId;
         return $this;
@@ -351,7 +351,7 @@ class Company
         return $this->logo;
     }
 
-    public function setLogo(?string $logo): Company
+    public function setLogo(?string $logo): CompanyDTO
     {
         $this->logo = $logo;
         return $this;
@@ -362,7 +362,7 @@ class Company
         return $this->modifyById;
     }
 
-    public function setModifyById(?string $modifyById): Company
+    public function setModifyById(?string $modifyById): CompanyDTO
     {
         $this->modifyById = $modifyById;
         return $this;
@@ -373,7 +373,7 @@ class Company
         return $this->opened;
     }
 
-    public function setOpened(?string $opened): Company
+    public function setOpened(?string $opened): CompanyDTO
     {
         $this->opened = $opened;
         return $this;
@@ -384,7 +384,7 @@ class Company
         return $this->originatorId;
     }
 
-    public function setOriginatorId(?string $originatorId): Company
+    public function setOriginatorId(?string $originatorId): CompanyDTO
     {
         $this->originatorId = $originatorId;
         return $this;
@@ -395,7 +395,7 @@ class Company
         return $this->originId;
     }
 
-    public function setOriginId(?string $originId): Company
+    public function setOriginId(?string $originId): CompanyDTO
     {
         $this->originId = $originId;
         return $this;
@@ -406,7 +406,7 @@ class Company
         return $this->originVersion;
     }
 
-    public function setOriginVersion(?string $originVersion): Company
+    public function setOriginVersion(?string $originVersion): CompanyDTO
     {
         $this->originVersion = $originVersion;
         return $this;
@@ -417,7 +417,7 @@ class Company
         return $this->phone;
     }
 
-    public function setPhone(?array $phone): Company
+    public function setPhone(?array $phone): CompanyDTO
     {
         $this->phone = $phone;
         return $this;
@@ -428,7 +428,7 @@ class Company
         return $this->regAddress;
     }
 
-    public function setRegAddress(?string $regAddress): Company
+    public function setRegAddress(?string $regAddress): CompanyDTO
     {
         $this->regAddress = $regAddress;
         return $this;
@@ -439,7 +439,7 @@ class Company
         return $this->regAddress2;
     }
 
-    public function setRegAddress2(?string $regAddress2): Company
+    public function setRegAddress2(?string $regAddress2): CompanyDTO
     {
         $this->regAddress2 = $regAddress2;
         return $this;
@@ -450,7 +450,7 @@ class Company
         return $this->regAddressCity;
     }
 
-    public function setRegAddressCity(?string $regAddressCity): Company
+    public function setRegAddressCity(?string $regAddressCity): CompanyDTO
     {
         $this->regAddressCity = $regAddressCity;
         return $this;
@@ -461,7 +461,7 @@ class Company
         return $this->regAddressCountry;
     }
 
-    public function setRegAddressCountry(?string $regAddressCountry): Company
+    public function setRegAddressCountry(?string $regAddressCountry): CompanyDTO
     {
         $this->regAddressCountry = $regAddressCountry;
         return $this;
@@ -472,7 +472,7 @@ class Company
         return $this->regAddressCountryCode;
     }
 
-    public function setRegAddressCountryCode(?string $regAddressCountryCode): Company
+    public function setRegAddressCountryCode(?string $regAddressCountryCode): CompanyDTO
     {
         $this->regAddressCountryCode = $regAddressCountryCode;
         return $this;
@@ -483,7 +483,7 @@ class Company
         return $this->regAddressLegal;
     }
 
-    public function setRegAddressLegal(?string $regAddressLegal): Company
+    public function setRegAddressLegal(?string $regAddressLegal): CompanyDTO
     {
         $this->regAddressLegal = $regAddressLegal;
         return $this;
@@ -494,7 +494,7 @@ class Company
         return $this->regAddressPostalCode;
     }
 
-    public function setRegAddressPostalCode(?string $regAddressPostalCode): Company
+    public function setRegAddressPostalCode(?string $regAddressPostalCode): CompanyDTO
     {
         $this->regAddressPostalCode = $regAddressPostalCode;
         return $this;
@@ -505,7 +505,7 @@ class Company
         return $this->regAddressProvince;
     }
 
-    public function setRegAddressProvince(?string $regAddressProvince): Company
+    public function setRegAddressProvince(?string $regAddressProvince): CompanyDTO
     {
         $this->regAddressProvince = $regAddressProvince;
         return $this;
@@ -516,7 +516,7 @@ class Company
         return $this->regAddressRegion;
     }
 
-    public function setRegAddressRegion(?string $regAddressRegion): Company
+    public function setRegAddressRegion(?string $regAddressRegion): CompanyDTO
     {
         $this->regAddressRegion = $regAddressRegion;
         return $this;
@@ -527,7 +527,7 @@ class Company
         return $this->revenue;
     }
 
-    public function setRevenue(?string $revenue): Company
+    public function setRevenue(?string $revenue): CompanyDTO
     {
         $this->revenue = $revenue;
         return $this;
@@ -538,7 +538,7 @@ class Company
         return $this->title;
     }
 
-    public function setTitle(?string $title): Company
+    public function setTitle(?string $title): CompanyDTO
     {
         $this->title = $title;
         return $this;
@@ -549,7 +549,7 @@ class Company
         return $this->utmCampaign;
     }
 
-    public function setUtmCampaign(?string $utmCampaign): Company
+    public function setUtmCampaign(?string $utmCampaign): CompanyDTO
     {
         $this->utmCampaign = $utmCampaign;
         return $this;
@@ -560,7 +560,7 @@ class Company
         return $this->utmContent;
     }
 
-    public function setUtmContent(?string $utmContent): Company
+    public function setUtmContent(?string $utmContent): CompanyDTO
     {
         $this->utmContent = $utmContent;
         return $this;
@@ -571,7 +571,7 @@ class Company
         return $this->utmMedium;
     }
 
-    public function setUtmMedium(?string $utmMedium): Company
+    public function setUtmMedium(?string $utmMedium): CompanyDTO
     {
         $this->utmMedium = $utmMedium;
         return $this;
@@ -582,7 +582,7 @@ class Company
         return $this->utmSource;
     }
 
-    public function setUtmSource(?string $utmSource): Company
+    public function setUtmSource(?string $utmSource): CompanyDTO
     {
         $this->utmSource = $utmSource;
         return $this;
@@ -593,7 +593,7 @@ class Company
         return $this->utmTerm;
     }
 
-    public function setUtmTerm(?string $utmTerm): Company
+    public function setUtmTerm(?string $utmTerm): CompanyDTO
     {
         $this->utmTerm = $utmTerm;
         return $this;
@@ -604,7 +604,7 @@ class Company
         return $this->web;
     }
 
-    public function setWeb(?array $web): Company
+    public function setWeb(?array $web): CompanyDTO
     {
         $this->web = $web;
         return $this;
@@ -626,50 +626,12 @@ class Company
 
     public function toArray(): array
     {
-        return [
-            'ADDRESS' => $this->address,
-            'ADDRESS_2' => $this->address2,
-            'ADDRESS_CITY' => $this->addressCity,
-            'ADDRESS_COUNTRY' => $this->addressCountry,
-            'ADDRESS_COUNTRY_CODE' => $this->addressCountryCode,
-            'ADDRESS_LEGAL' => $this->addressLegal,
-            'ADDRESS_POSTAL_CODE' => $this->addressPostalCode,
-            'ADDRESS_PROVINCE' => $this->addressProvince,
-            'ADDRESS_REGION' => $this->addressRegion,
-            'ASSIGNED_BY_ID' => $this->assignedById,
-            'BANKING_DETAILS' => $this->bankingDetails,
-            'COMMENTS' => $this->comments,
-            'COMPANY_TYPE' => $this->companyType,
-            'CURRENCY_ID' => $this->currencyId,
-            'EMAIL' => $this->email,
-            'EMPLOYESS' => $this->employees,
-            'IM' => $this->im,
-            'INDUSTRY' => $this->industry,
-            'IS_MY_COMPANY' => $this->isMyCompany,
-            'LOGO' => $this->logo,
-            'OPENED' => $this->opened,
-            'ORIGINATOR_ID' => $this->originatorId,
-            'ORIGIN_ID' => $this->originId,
-            'ORIGIN_VERSION' => $this->originVersion,
-            'PHONE' => $this->phone,
-            'REG_ADDRESS' => $this->regAddress,
-            'REG_ADDRESS_2' => $this->regAddress2,
-            'REG_ADDRESS_CITY' => $this->regAddressCity,
-            'REG_ADDRESS_COUNTRY' => $this->regAddressCountry,
-            'REG_ADDRESS_COUNTRY_CODE' => $this->regAddressCountryCode,
-            'REG_ADDRESS_LEGAL' => $this->regAddressLegal,
-            'REG_ADDRESS_POSTAL_CODE' => $this->regAddressPostalCode,
-            'REG_ADDRESS_PROVINCE' => $this->regAddressProvince,
-            'REG_ADDRESS_REGION' => $this->regAddressRegion,
-            'REVENUE' => $this->revenue,
-            'TITLE' => $this->title,
-            'UTM_CAMPAIGN' => $this->utmCampaign,
-            'UTM_CONTENT' => $this->utmContent,
-            'UTM_MEDIUM' => $this->utmMedium,
-            'UTM_SOURCE' => $this->utmSource,
-            'UTM_TERM' => $this->utmTerm,
-            'WEB' => $this->web,
-        ];
+        $properties = get_object_vars($this);
+        $result = [];
+        foreach ($properties as $property => $value) {
+            $result[$property] = $value;
+        }
+        return $result;
     }
 
 

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Lanser\Bitrix24restApi\Client\Builder\CompanyRestClient;
+namespace Lanser\Bitrix24restApi\Client\Builder\RestClient;
 
-use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
+use Lanser\Bitrix24restApi\Client\BitrixEntity\CompanyDTO;
 use Lanser\Bitrix24restApi\Client\BitrixRest;
 use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseMapper;
 use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
@@ -17,27 +17,32 @@ class CompanyRestClient extends BitrixRest
     }
 
     /**
-     * @param Company $company
+     * @param CompanyDTO $company
      * @return BitrixResponseMapper
      */
-    public function storeCompany(Company $company): BitrixResponseMapper
+    public function store(CompanyDTO $company): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.add', $company->getRequestData());
     }
 
-    public function updateCompany(int $id, Company $company): BitrixResponseMapper
+    public function update(string $id, CompanyDTO $company): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.update', $company->getRequestData(), [], $id);
     }
 
-    public function getCompanyList(array $filters = []): BitrixResponseMapper
+    public function getList(array $filters = []): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.list', [], $filters);
     }
 
 
-    public function getCompanyOne(int $id): BitrixResponseMapper
+    public function getOne(string $id): BitrixResponseMapper
     {
         return $this->makeRequest('crm.company.get', [], [], $id);
+    }
+
+    public function delete(string $id): BitrixResponseMapper
+    {
+        return $this->makeRequest('crm.company.delete', [], [], $id);
     }
 }

@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace Lanser\Bitrix24restApi\Client\Builder\Response;
 
-use Lanser\Bitrix24restApi\Client\BitrixEntity\Company;
+use Lanser\Bitrix24restApi\Client\BitrixEntity\CompanyDTO;
+use Lanser\Bitrix24restApi\Client\BitrixEntity\ContactDTO;
+use Lanser\Bitrix24restApi\Client\BitrixEntity\DealDTO;
+use Lanser\Bitrix24restApi\Client\BitrixEntity\LeadDTO;
 use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
 class BitrixResponseMapper
@@ -101,7 +104,10 @@ class BitrixResponseMapper
     private function getEntity(array $data): mixed
     {
         return match (true) {
-          $this->entityTypeEnum === EntityTypeEnum::COMPANY => Company::fromArray($data),
+          $this->entityTypeEnum === EntityTypeEnum::COMPANY => CompanyDTO::fromArray($data),
+          $this->entityTypeEnum === EntityTypeEnum::CONTACT => ContactDTO::fromArray($data),
+          $this->entityTypeEnum === EntityTypeEnum::LEAD => LeadDTO::fromArray($data),
+          $this->entityTypeEnum === EntityTypeEnum::DEAL => DealDTO::fromArray($data),
         };
     }
 

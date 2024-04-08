@@ -36,7 +36,7 @@ abstract class BitrixRest
         return BitrixResponseMapper::fromArray($data, static::$entity);
     }
 
-    protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseMapper
+    protected function makeRequest(string $method, array $fields = [], array $filters = [], int|string $id = null,): BitrixResponseMapper
     {
         $request = [];
 
