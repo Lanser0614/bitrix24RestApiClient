@@ -3,13 +3,20 @@ declare(strict_types=1);
 
 namespace Lanser\Bitrix24restApi\Client;
 
-use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseDto;
+use Lanser\Bitrix24restApi\Client\Builder\Response\BitrixResponseMapper;
+use Lanser\Bitrix24restApi\Enum\EntityTypeEnum;
 
-class BitrixRest
+abstract class BitrixRest
 {
-    protected function baseRequest(string $method, array $data): BitrixResponseDto
+    protected static ?EntityTypeEnum $entity = null;
+    public function __construct(
+        private readonly string $connectionString,
+    )
     {
-        $queryUrl = 'https://bitrix.imzo.uz/rest/397/7mth1xm4i2gf9w3s/' . $method;
+    }
+    protected function baseRequest(string $method, array $data = []): BitrixResponseMapper
+    {
+        $queryUrl = $this->connectionString . $method;
         $queryData = http_build_query($data);
 
         $curl = curl_init();
@@ -26,11 +33,13 @@ class BitrixRest
         curl_close($curl);
 
         $data = json_decode($result, true);
-        return BitrixResponseDto::fromArray($data);
+        return BitrixResponseMapper::fromArray($data, static::$entity);
     }
 
-    protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseDto
+    protected function makeRequest(string $method, array $fields = [], array $filters = [], ?int $id = null,): BitrixResponseMapper
     {
+        $request = [];
+
         if (count($fields) > 0) {
             $request['fields'] = $fields;
         }
@@ -43,11 +52,6 @@ class BitrixRest
             $request['id'] = $id;
         }
 
-        if (empty($request)) {
-            throw new \InvalidArgumentException();
-        }
-
         return $this->baseRequest($method, $request);
-
     }
 }
